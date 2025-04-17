@@ -213,7 +213,7 @@
       </ul>
     </div>
 
-    <!-- Профиль -->
+    <!-- Profile -->
     <div id="profile" class="tab-content">
       <h1>Profile</h1>
       <div class="auth-box">
@@ -235,10 +235,9 @@
   <a href="https://t.me/nonagonzone" id="cheat-btn" class="bottom-btn" target="_blank">BEST FREE CHEAT</a>
 
   <script>
-    const { createClient } = supabase;
     const supabaseUrl = 'https://vvdyfplkjtoeegdvcyyy.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZHlmcGxranRvZWVnZHZjeXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ4OTc1MDAsImV4cCI6MjA2MDQ3MzUwMH0.UBOLGA5xGAmjqMWf49iBdE96P6MLXeQQ3S_OYCyWlFc';
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
     const tabs = document.querySelectorAll('.tab-content');
     const links = document.querySelectorAll('.tab-link');
@@ -267,7 +266,7 @@
       if (error) {
         alert('Ошибка регистрации: ' + error.message);
       } else {
-        alert('Успешная регистрация! Проверь почту.');
+        alert('✅ Успешная регистрация! Проверь почту.');
       }
     }
 
@@ -277,7 +276,7 @@
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
-        alert('Ошибка входа: ' + error.message);
+        alert('❌ Ошибка входа: ' + error.message);
       } else {
         showProfile();
       }
