@@ -25,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* Навигация */
     .nav {
       position: fixed;
       top: 0;
@@ -53,7 +52,6 @@
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     }
 
-    /* Контент */
     .content {
       display: flex;
       flex-direction: column;
@@ -63,7 +61,6 @@
       padding: 80px 20px 20px;
     }
 
-    /* Правила для вкладок */
     .tab-content {
       display: none;
       width: 100%;
@@ -71,12 +68,8 @@
       animation: fadeIn 0.5s ease-in;
     }
 
-    #home {
-      display: block; /* Главная видна по умолчанию */
-    }
-
-    .tab-content:target {
-      display: block; /* Показываем выбранную вкладку */
+    .tab-content.active {
+      display: block;
     }
 
     @keyframes fadeIn {
@@ -175,7 +168,6 @@
       100% { transform: scale(1); }
     }
 
-    /* Стили для вкладки Crack */
     .crack-content {
       color: #ccc;
       font-size: 1.1em;
@@ -240,7 +232,6 @@
       100% { transform: translateY(2px); }
     }
 
-    /* Адаптивность */
     @media (max-width: 600px) {
       h1 {
         font-size: 2.5em;
@@ -273,16 +264,13 @@
   </style>
 </head>
 <body>
-  <!-- Навигация (только Home и Crack CS2) -->
   <div class="nav">
-    <a href="#home" class="active">Home</a>
-    <a href="#crack">Crack CS2</a>
+    <a href="#" class="tab-link active" data-tab="home">Home</a>
+    <a href="#" class="tab-link" data-tab="crack">Crack CS2</a>
   </div>
 
-  <!-- Контент -->
   <div class="content">
-    <!-- Главная страница -->
-    <div id="home" class="tab-content">
+    <div id="home" class="tab-content active">
       <h1>ReqSNGLove</h1>
       <div class="sub">SWE1H | Nonagon ID: 195</div>
       <div class="buttons">
@@ -291,7 +279,6 @@
       </div>
     </div>
 
-    <!-- Вкладка Crack CS2 -->
     <div id="crack" class="tab-content crack-content">
       <h1>Crack CS2</h1>
       <p>Explore the latest cracks for CS2 cheats. All files are provided for educational purposes only. Use at your own risk.</p>
@@ -304,10 +291,26 @@
     </div>
   </div>
 
-  <!-- Нижняя кнопка -->
   <a href="https://t.me/nonagonzone" class="bottom-btn" rel="noopener noreferrer" target="_blank">Join Best Free Cheat</a>
-
-  <!-- Scanline эффект -->
   <div class="scanline"></div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-content');
+    const links = document.querySelectorAll('.tab-link');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        const target = link.getAttribute('data-tab');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        links.forEach(l => l.classList.remove('active'));
+
+        document.getElementById(target).classList.add('active');
+        link.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
