@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="ReqSNGLove - Join SWE1H community on Telegram and YouTube for exclusive content and free cheats.">
-  <meta name="keywords" content="ReqSNGLove, SWE1H, Nonagon, cheats, Telegram, YouTube, CS2, cracks">
-  <title>ReqSNGLove</title>
+  <title>ReqSNGLove + Auth</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
@@ -21,7 +19,6 @@
       color: #fff;
       min-height: 100vh;
       text-align: center;
-      position: relative;
       overflow-x: hidden;
     }
 
@@ -53,18 +50,11 @@
     }
 
     .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 80px 20px 20px;
+      padding: 100px 20px 40px;
     }
 
     .tab-content {
       display: none;
-      width: 100%;
-      max-width: 800px;
       animation: fadeIn 0.5s ease-in;
     }
 
@@ -82,12 +72,6 @@
       letter-spacing: 3px;
       margin: 0;
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-      to { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
     }
 
     .sub {
@@ -95,43 +79,6 @@
       font-size: 1.3em;
       color: #ccc;
       letter-spacing: 1px;
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards 0.5s;
-    }
-
-    .btn {
-      margin: 15px;
-      padding: 15px 35px;
-      background: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      transition: left 0.3s ease;
-      z-index: -1;
-    }
-
-    .btn:hover::before {
-      left: 0;
-    }
-
-    .btn:hover {
-      color: #000;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
 
     .buttons {
@@ -142,175 +89,224 @@
       gap: 10px;
     }
 
+    .btn {
+      margin: 10px;
+      padding: 15px 35px;
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
     .bottom-btn {
       position: fixed;
       bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       padding: 12px 28px;
-      border: 2px solid #fff;
+      border: 2px solid #8B0000;
+      background: #300000;
       color: #fff;
-      background: transparent;
       text-decoration: none;
       font-size: 1em;
       transition: all 0.3s ease;
       z-index: 1;
-      animation: pulse 2s infinite;
     }
 
     .bottom-btn:hover {
-      background: #fff;
-      color: #000;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .crack-content {
-      color: #ccc;
-      font-size: 1.1em;
-      line-height: 1.6;
-      margin-top: 20px;
+      background: #8B0000;
     }
 
     .crack-list {
+      margin-top: 30px;
       text-align: left;
-      margin: 20px auto;
-      padding: 0 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .crack-list li {
       margin: 10px 0;
       padding: 10px;
       border-left: 2px solid #fff;
-      transition: all 0.3s ease;
       display: flex;
       justify-content: space-between;
+    }
+
+    .auth-box {
+      margin-top: 30px;
+    }
+
+    .avatar-circle {
+      width: 100px;
+      height: 100px;
+      background: #111;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
       align-items: center;
-    }
-
-    .crack-list li:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateX(5px);
-    }
-
-    .crack-list a {
+      justify-content: center;
+      font-size: 48px;
       color: #fff;
-      text-decoration: none;
-      padding: 8px 16px;
       border: 2px solid #fff;
-      transition: all 0.3s ease;
     }
 
-    .crack-list a:hover {
-      background: #fff;
-      color: #000;
+    input {
+      padding: 10px;
+      width: 250px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
     }
 
-    .scanline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.05) 1px,
-        transparent 1px,
-        transparent 2px
-      );
-      pointer-events: none;
-      z-index: 10;
-      animation: scan 10s linear infinite;
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      background: #8B0000;
+      color: white;
+      cursor: pointer;
     }
 
-    @keyframes scan {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(2px); }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.5em;
-      }
-      .sub {
-        font-size: 1em;
-      }
-      .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-      }
-      .bottom-btn {
-        bottom: 20px;
-        padding: 10px 20px;
-        font-size: 0.9em;
-      }
-      .nav a {
-        font-size: 1em;
-        padding: 6px 12px;
-      }
-      .crack-content {
-        font-size: 0.9em;
-      }
-      .crack-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
+    button:hover {
+      background: #b30000;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
   <div class="nav">
     <a href="#" class="tab-link active" data-tab="home">Home</a>
     <a href="#" class="tab-link" data-tab="crack">Crack CS2</a>
+    <a href="#" class="tab-link" data-tab="profile">Профиль</a>
   </div>
 
   <div class="content">
+    <!-- Home -->
     <div id="home" class="tab-content active">
       <h1>ReqSNGLove</h1>
       <div class="sub">SWE1H | Nonagon ID: 195</div>
       <div class="buttons">
-        <a href="https://t.me/swe1hx_cheat" class="btn" rel="noopener noreferrer" target="_blank">Join Swe1h TG</a>
-        <a href="https://www.youtube.com/@everyonecheat" class="btn" rel="noopener noreferrer" target="_blank">Join Swe1h YT</a>
+        <a href="https://t.me/swe1hx_cheat" class="btn" target="_blank">Join Swe1h TG</a>
+        <a href="https://www.youtube.com/@everyonecheat" class="btn" target="_blank">Join Swe1h YT</a>
       </div>
     </div>
 
-    <div id="crack" class="tab-content crack-content">
+    <!-- Crack -->
+    <div id="crack" class="tab-content">
       <h1>Crack CS2</h1>
-      <p>Explore the latest cracks for CS2 cheats. All files are provided for educational purposes only. Use at your own risk.</p>
       <ul class="crack-list">
         <li>
           Aimware Crack CS2 [17.04.2025]
-          <a href="https://drive.google.com/file/d/1Hul3maQlhIjicsNwzPxLN7HdaL0Aca-a/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">Download</a>
+          <a href="https://drive.google.com/file/d/1Hul3maQlhIjicsNwzPxLN7HdaL0Aca-a/view?usp=drive_link" class="btn" target="_blank">Download</a>
         </li>
       </ul>
     </div>
+
+    <!-- Профиль -->
+    <div id="profile" class="tab-content">
+      <h1>Профиль</h1>
+      <div class="auth-box">
+        <div id="avatar" class="avatar-circle" style="display:none;">?</div>
+        <div id="auth" style="margin-bottom:20px;">
+          <input type="email" id="email" placeholder="Email"><br>
+          <input type="password" id="password" placeholder="Пароль"><br>
+          <button onclick="register()">Регистрация</button>
+          <button onclick="login()">Вход</button>
+        </div>
+        <div id="user-info" style="display:none;">
+          <p id="user-id">ID: ...</p>
+          <button onclick="logout()">Выйти</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <a href="https://t.me/nonagonzone" class="bottom-btn" rel="noopener noreferrer" target="_blank">Join Best Free Cheat</a>
-  <div class="scanline"></div>
+  <a href="https://t.me/nonagonzone" id="cheat-btn" class="bottom-btn" target="_blank">BEST FREE CHEAT</a>
 
   <script>
+    const { createClient } = supabase;
+    const supabaseUrl = 'https://vvdyfplkjtoeegdvcyyy.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ2ZHlmcGxranRvZWVnZHZjeXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ4OTc1MDAsImV4cCI6MjA2MDQ3MzUwMH0.UBOLGA5xGAmjqMWf49iBdE96P6MLXeQQ3S_OYCyWlFc';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     const tabs = document.querySelectorAll('.tab-content');
     const links = document.querySelectorAll('.tab-link');
+    const cheatBtn = document.getElementById('cheat-btn');
 
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
+        const tab = link.getAttribute('data-tab');
 
-        const target = link.getAttribute('data-tab');
-
-        tabs.forEach(tab => tab.classList.remove('active'));
+        tabs.forEach(t => t.classList.remove('active'));
         links.forEach(l => l.classList.remove('active'));
 
-        document.getElementById(target).classList.add('active');
+        document.getElementById(tab).classList.add('active');
         link.classList.add('active');
+
+        // Скрыть кнопку на странице crack
+        cheatBtn.style.display = (tab === 'crack') ? 'none' : 'block';
       });
     });
+
+    async function register() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { error } = await supabase.auth.signUp({ email, password });
+
+      if (error) {
+        alert('Ошибка регистрации: ' + error.message);
+      } else {
+        alert('Успешная регистрация! Проверь почту.');
+      }
+    }
+
+    async function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        alert('Ошибка входа: ' + error.message);
+      } else {
+        showProfile();
+      }
+    }
+
+    async function logout() {
+      await supabase.auth.signOut();
+      location.reload();
+    }
+
+    async function showProfile() {
+      const { data } = await supabase.auth.getUser();
+      if (data?.user) {
+        const email = data.user.email;
+        const firstLetter = email.charAt(0).toUpperCase();
+
+        document.getElementById('avatar').textContent = firstLetter;
+        document.getElementById('avatar').style.display = 'flex';
+        document.getElementById('user-id').textContent = 'ID: ' + data.user.id;
+
+        document.getElementById('auth').style.display = 'none';
+        document.getElementById('user-info').style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', showProfile);
   </script>
+
 </body>
 </html>
+
