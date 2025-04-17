@@ -64,23 +64,21 @@
     }
 
     /* Правила для вкладок */
-.tab-content {
-  display: none; /* Все вкладки скрыты по умолчанию */
-  width: 100%;
-  max-width: 800px;
-  animation: fadeIn 0.5s ease-in;
-}
+    .tab-content {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      animation: fadeIn 0.5s ease-in;
+    }
 
-.tab-content:target {
-  display: block; /* Показываем только целевую вкладку */
-}
+    #home {
+      display: block; /* Главная видна по умолчанию */
+    }
 
-/* Если нет активной вкладки (по умолчанию), показываем #home */
-.tab-content#home {
-  display: block;
-}
+    .tab-content:target {
+      display: block; /* Показываем выбранную вкладку */
+    }
 
-/* Убираем дублирование display: block для #home */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
