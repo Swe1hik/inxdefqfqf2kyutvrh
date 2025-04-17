@@ -63,6 +63,7 @@
       padding: 80px 20px 20px;
     }
 
+    /* Правила для вкладок */
     .tab-content {
       display: none;
       width: 100%;
@@ -70,10 +71,12 @@
       animation: fadeIn 0.5s ease-in;
     }
 
-    .tab-content:target,
-    #home:target ~ .content #home-content,
-    #home-content {
-      display: block;
+    #home {
+      display: block; /* Главная видна по умолчанию */
+    }
+
+    .tab-content:target {
+      display: block; /* Показываем выбранную вкладку */
     }
 
     @keyframes fadeIn {
@@ -270,7 +273,7 @@
   </style>
 </head>
 <body>
-  <!-- Навигация (удалена вкладка Info) -->
+  <!-- Навигация (только Home и Crack CS2) -->
   <div class="nav">
     <a href="#home" class="active">Home</a>
     <a href="#crack">Crack CS2</a>
@@ -279,16 +282,16 @@
   <!-- Контент -->
   <div class="content">
     <!-- Главная страница -->
-    <div id="home-content" class="tab-content">
+    <div id="home" class="tab-content">
       <h1>ReqSNGLove</h1>
       <div class="sub">SWE1H | Nonagon ID: 195</div>
       <div class="buttons">
-        <a href="https://t.me/swe1hx_cheat" class="btn" rel="noopener noreferrer" aria-label="Join Swe1h Telegram channel">Join Swe1h TG</a>
-        <a href="https://www.youtube.com/@everyonecheat" class="btn" rel="noopener noreferrer" aria-label="Join Swe1h YouTube channel">Join Swe1h YT</a>
+        <a href="https://t.me/swe1hx_cheat" class="btn" rel="noopener noreferrer" target="_blank">Join Swe1h TG</a>
+        <a href="https://www.youtube.com/@everyonecheat" class="btn" rel="noopener noreferrer" target="_blank">Join Swe1h YT</a>
       </div>
     </div>
 
-    <!-- Вкладка Crack CS2 (обновленная ссылка) -->
+    <!-- Вкладка Crack CS2 -->
     <div id="crack" class="tab-content crack-content">
       <h1>Crack CS2</h1>
       <p>Explore the latest cracks for CS2 cheats. All files are provided for educational purposes only. Use at your own risk.</p>
@@ -302,7 +305,7 @@
   </div>
 
   <!-- Нижняя кнопка -->
-  <a href="https://t.me/nonagonzone" class="bottom-btn" rel="noopener noreferrer" aria-label="Join Nonagon Zone Telegram channel">Join Best Free Cheat</a>
+  <a href="https://t.me/nonagonzone" class="bottom-btn" rel="noopener noreferrer" target="_blank">Join Best Free Cheat</a>
 
   <!-- Scanline эффект -->
   <div class="scanline"></div>
