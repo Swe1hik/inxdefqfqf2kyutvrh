@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ReqSNGLove</title>
-  <meta name="description" content="ReqSNGLove - Hacks, CFG, and Bio customization for CS2 by SWE1H">
-  <meta name="keywords" content="CS2 hacks, CFG, Aimware, SharkHack, bio, gaming">
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" async></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     * { box-sizing: border-box; }
@@ -167,117 +164,6 @@
       background: #fff;
       color: #000;
     }
-
-    /* Bio Editor Styles */
-    .bio-editor {
-      max-width: 600px;
-      margin: 20px auto;
-      text-align: left;
-    }
-
-    .bio-editor label {
-      display: block;
-      margin: 10px 0 5px;
-      font-size: 1.1em;
-    }
-
-    .bio-editor input,
-    .bio-editor textarea {
-      width: 100%;
-      padding: 10px;
-      background: #222;
-      border: 1px solid #fff;
-      color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-    }
-
-    .bio-editor textarea {
-      height: 100px;
-      resize: vertical;
-    }
-
-    .bio-editor .color-picker {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .bio-editor .color-picker input {
-      width: 50px;
-      height: 30px;
-      padding: 0;
-    }
-
-    .bio-links {
-      margin-top: 20px;
-    }
-
-    .bio-links input {
-      margin: 5px 0;
-    }
-
-    .bio-preview {
-      margin-top: 30px;
-      padding: 20px;
-      border: 1px solid #fff;
-      background: #000;
-      text-align: center;
-    }
-
-    .share-link {
-      margin-top: 20px;
-    }
-
-    .share-link input {
-      width: 80%;
-      margin-right: 10px;
-    }
-
-    #auth-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 300px;
-      margin: 20px auto;
-    }
-
-    #auth-form input {
-      border-radius: 5px;
-    }
-
-    /* Bio View Styles */
-    .bio-view {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #fff;
-    }
-
-    .bio-view h1 {
-      font-size: 2.5em;
-      margin: 0;
-    }
-
-    .bio-view p {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
-
-    .bio-view .links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5em; }
-      .btn { padding: 10px 20px; font-size: 0.9em; }
-      .nav a { font-size: 1em; padding: 6px 12px; }
-      .bottom-btn { padding: 10px 20px; font-size: 0.9em; bottom: 20px; }
-      .bio-view h1 { font-size: 2em; }
-      .bio-view { padding: 15px; }
-    }
   </style>
 </head>
 <body>
@@ -286,22 +172,20 @@
   <div id="particles-js"></div>
 
   <!-- Навигация -->
-  <nav class="nav">
-    <a href="#home" class="tab-link active" data-tab="home" role="tab" aria-label="Home tab">Home</a>
-    <a href="#hacks" class="tab-link" data-tab="hacks" role="tab" aria-label="Hacks tab">Hacks CS2</a>
-    <a href="#cfg" class="tab-link" data-tab="cfg" role="tab" aria-label="CFG tab">CFG</a>
-    <a href="#other" class="tab-link" data-tab="other" role="tab" aria-label="Other tab">Other</a>
-    <a href="#bio" class="tab-link" data-tab="bio" role="tab" aria-label="Bio tab">Bio</a>
-  </nav>
+  <div class="nav">
+    <a href="#" class="tab-link active" data-tab="home">Home</a>
+    <a href="#" class="tab-link" data-tab="hacks">Hacks CS2</a>
+    <a href="#" class="tab-link" data-tab="cfg">CFG</a>
+  </div>
 
   <!-- Контент -->
-  <main class="content">
+  <div class="content">
     <!-- HOME -->
     <div id="home" class="tab-content active">
       <h1>ReqSNGLove</h1>
       <div class="sub">SWE1H | Nonagon ID: 195</div>
       <div class="buttons">
-        <a href="https://t.me/swe1h_software" class="btn" target="_blank">Join Swe1h TG</a>
+        <a href="https://t.me/swe1hx_cheat" class="btn" target="_blank">Join Swe1h TG</a>
         <a href="https://www.youtube.com/@everyonecheat" class="btn" target="_blank">Join Swe1h YT</a>
       </div>
     </div>
@@ -336,399 +220,64 @@
         </li>
       </ul>
     </div>
-
-    <!-- OTHER -->
-    <div id="other" class="tab-content">
-      <h1>Other</h1>
-      <ul class="crack-list">
-        <li>
-          Pixel Paint 2.0 [18.04.2025]
-          <a href="https://t.me/swe1h_software" class="btn" target="_blank">Download</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- BIO -->
-    <div id="bio" class="tab-content">
-      <h1>Create Your Bio</h1>
-      <p>Customize your personal bio and share it with the world!</p>
-      <div class="bio-editor">
-        <div id="auth-section">
-          <form id="auth-form">
-            <input type="email" id="auth-email" placeholder="Email" required>
-            <input type="password" id="auth-password" placeholder="Password" required>
-            <div class="buttons">
-              <button type="button" class="btn" onclick="signIn()">Sign In</button>
-              <button type="button" class="btn" onclick="signUp()">Sign Up</button>
-            </div>
-          </form>
-        </div>
-        <div id="bio-form" style="display: none;">
-          <label for="bio-username">Username:</label>
-          <input type="text" id="bio-username" placeholder="Your username" required>
-          
-          <label for="bio-desc">Description:</label>
-          <textarea id="bio-desc" placeholder="Tell about yourself"></textarea>
-          
-          <label>Colors:</label>
-          <div class="color-picker">
-            <input type="color" id="bio-bg-color" value="#000000">
-            <span>Background</span>
-            <input type="color" id="bio-text-color" value="#ffffff">
-            <span>Text</span>
-          </div>
-          
-          <label>Social Links:</label>
-          <div class="bio-links">
-            <input type="text" class="bio-link-name" placeholder="Link name (e.g., Telegram)">
-            <input type="url" class="bio-link-url" placeholder="Link URL">
-            <button class="btn" onclick="addLink()">Add Link</button>
-          </div>
-          
-          <div class="buttons">
-            <button class="btn" onclick="saveBio()">Save Bio</button>
-            <button class="btn" onclick="signOut()">Sign Out</button>
-          </div>
-        </div>
-        <div class="bio-preview" id="bio-preview">
-          <h2 id="preview-username">Your Username</h2>
-          <p id="preview-desc">Your description</p>
-          <div id="preview-links"></div>
-        </div>
-        <div class="share-link">
-          <input type="text" id="share-url" readonly>
-          <button class="btn" onclick="copyLink()">Copy Link</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- BIO VIEW -->
-    <div id="bio-view" class="tab-content">
-      <div class="bio-view">
-        <h1 id="bio-view-username">Loading...</h1>
-        <p id="bio-view-desc"></p>
-        <div class="links" id="bio-view-links"></div>
-      </div>
-    </div>
-  </main>
+  </div>
 
   <!-- Кнопка снизу -->
   <a href="https://t.me/nonagonzone" id="cheat-btn" class="bottom-btn" target="_blank">BEST FREE CHEAT</a>
 
   <!-- JS -->
   <script>
-    // Supabase Client
-    const supabase = Supabase.createClient(
-      'https://tyjdntmuvhlrdtfemuta.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5amRudG11dmhscmR0ZmVtdXRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ5NTgyNzUsImV4cCI6MjA2MDUzNDI3NX0.l48UmnT-DXtX8lZeCKKHBal8UBwbInE83FVoa-0B8Bg'
-    );
-
-    // Generate random slug
-    function generateRandomSlug() {
-      const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-      let slug = '';
-      for (let i = 0; i < 8; i++) {
-        slug += characters.charAt(Math.floor(Math.random() * characters.length));
-      }
-      return slug;
-    }
-
-    // Auth Functions
-    async function signUp() {
-      const email = document.getElementById('auth-email').value;
-      const password = document.getElementById('auth-password').value;
-      if (!email || !password) {
-        alert('Please enter email and password');
-        return;
-      }
-      const { error } = await supabase.auth.signUp({ email, password });
-      if (error) alert('Error signing up: ' + error.message);
-      else alert('Check your email for confirmation!');
-    }
-
-    async function signIn() {
-      const email = document.getElementById('auth-email').value;
-      const password = document.getElementById('auth-password').value;
-      if (!email || !password) {
-        alert('Please enter email and password');
-        return;
-      }
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) alert('Error signing in: ' + error.message);
-      else checkAuth();
-    }
-
-    async function signOut() {
-      await supabase.auth.signOut();
-      checkAuth();
-      window.location.hash = 'bio';
-    }
-
-    async function checkAuth() {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        document.getElementById('auth-section').style.display = 'none';
-        document.getElementById('bio-form').style.display = 'block';
-        loadBio(user.id);
-      } else {
-        document.getElementById('auth-section').style.display = 'block';
-        document.getElementById('bio-form').style.display = 'none';
-        document.getElementById('bio-preview').style.display = 'none';
-      }
-    }
-
-    // Bio Functions
-    let links = [];
-
-    function addLink() {
-      const name = document.querySelector('.bio-link-name').value;
-      const url = document.querySelector('.bio-link-url').value;
-      if (name && url) {
-        links.push({ name, url });
-        document.querySelector('.bio-link-name').value = '';
-        document.querySelector('.bio-link-url').value = '';
-        updatePreview();
-      } else {
-        alert('Please enter both link name and URL');
-      }
-    }
-
-    async function saveBio() {
-      const username = document.getElementById('bio-username').value;
-      const description = document.getElementById('bio-desc').value;
-      const bg_color = document.getElementById('bio-bg-color').value;
-      const text_color = document.getElementById('bio-text-color').value;
-      const { data: { user } } = await supabase.auth.getUser();
-
-      if (!user) {
-        alert('Please sign in!');
-        return;
-      }
-
-      if (!username) {
-        alert('Please enter a username');
-        return;
-      }
-
-      let slug = generateRandomSlug();
-      let isUnique = false;
-      let attempts = 0;
-      const maxAttempts = 5;
-
-      while (!isUnique && attempts < maxAttempts) {
-        const { data: existing } = await supabase.from('bios').select('slug').eq('slug', slug);
-        if (existing.length === 0) {
-          isUnique = true;
-        } else {
-          slug = generateRandomSlug();
-          attempts++;
+    // particles init
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "out_mode": "bounce"
         }
-      }
-
-      if (!isUnique) {
-        alert('Unable to generate a unique ID. Please try again.');
-        return;
-      }
-
-      const { data, error } = await supabase
-        .from('bios')
-        .upsert({
-          user_id: user.id,
-          username,
-          description,
-          bg_color,
-          text_color,
-          links,
-          slug
-        }, { onConflict: 'user_id' });
-
-      if (error) {
-        alert('Error saving bio: ' + error.message);
-      } else {
-        const shareUrl = `${window.location.origin}/#bio/${slug}`;
-        document.getElementById('share-url').value = shareUrl;
-        document.getElementById('bio-preview').style.display = 'block';
-        updatePreview();
-        alert('Bio saved successfully!');
-      }
-    }
-
-    async function loadBio(userId) {
-      const { data, error } = await supabase
-        .from('bios')
-        .select('*')
-        .eq('user_id', userId)
-        .single();
-
-      if (data) {
-        document.getElementById('bio-username').value = data.username;
-        document.getElementById('bio-desc').value = data.description || '';
-        document.getElementById('bio-bg-color').value = data.bg_color;
-        document.getElementById('bio-text-color').value = data.text_color;
-        links = data.links || [];
-        const shareUrl = `${window.location.origin}/#bio/${data.slug}`;
-        document.getElementById('share-url').value = shareUrl;
-        document.getElementById('bio-preview').style.display = 'block';
-        updatePreview();
-      }
-    }
-
-    function updatePreview() {
-      const username = document.getElementById('bio-username').value;
-      const description = document.getElementById('bio-desc').value;
-      const bg_color = document.getElementById('bio-bg-color').value;
-      const text_color = document.getElementById('bio-text-color').value;
-
-      const preview = document.getElementById('bio-preview');
-      preview.style.backgroundColor = bg_color;
-      preview.style.color = text_color;
-      document.getElementById('preview-username').textContent = username || 'Your Username';
-      document.getElementById('preview-desc').textContent = description || 'Your description';
-
-      const linksContainer = document.getElementById('preview-links');
-      linksContainer.innerHTML = '';
-      links.forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.url;
-        a.textContent = link.name;
-        a.className = 'btn';
-        a.target = '_blank';
-        linksContainer.appendChild(a);
-      });
-    }
-
-    async function loadBioView(slug) {
-      const { data, error } = await supabase
-        .from('bios')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      if (error || !data) {
-        document.getElementById('bio-view-username').textContent = 'Bio not found';
-        document.getElementById('bio-view-desc').textContent = '';
-        document.getElementById('bio-view-links').innerHTML = '';
-        return;
-      }
-
-      document.body.style.backgroundColor = data.bg_color;
-      document.body.style.color = data.text_color;
-      document.getElementById('bio-view-username').textContent = data.username;
-      document.getElementById('bio-view-desc').textContent = data.description || 'No description provided';
-      
-      const linksContainer = document.getElementById('bio-view-links');
-      linksContainer.innerHTML = '';
-      (data.links || []).forEach(link => {
-        const a = document.createElement('a');
-        a.href = link.url;
-        a.textContent = link.name;
-        a.className = 'btn';
-        a.target = '_blank';
-        linksContainer.appendChild(a);
-      });
-
-      // Update meta tags for SEO
-      document.querySelector('meta[name="description"]').setAttribute('content', `Bio page for ${data.username} on ReqSNGLove`);
-    }
-
-    function copyLink() {
-      const shareUrl = document.getElementById('share-url');
-      shareUrl.select();
-      document.execCommand('copy');
-      alert('Link copied!');
-    }
-
-    // Route Handling
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const links = document.querySelectorAll('.tab-link');
-      const cheatBtn = document.getElementById('cheat-btn');
-
-      tabs.forEach(t => t.classList.remove('active'));
-      links.forEach(l => l.classList.remove('active'));
-
-      const tab = document.getElementById(tabId);
-      if (tab) {
-        tab.classList.add('active');
-        const link = document.querySelector(`.tab-link[data-tab="${tabId}"]`);
-        if (link && tabId !== 'bio-view') link.classList.add('active');
-        cheatBtn.style.display = (tabId === 'hacks') ? 'none' : 'block';
-      }
-    }
-
-    function handleRoute() {
-      const hash = window.location.hash || '#home';
-      if (hash.startsWith('#bio/')) {
-        const slug = hash.replace('#bio/', '');
-        showTab('bio-view');
-        loadBioView(slug);
-      } else {
-        const tabId = hash.replace('#', '');
-        showTab(tabId);
-      }
-    }
-
-    window.addEventListener('hashchange', handleRoute);
-    window.addEventListener('load', () => {
-      handleRoute();
-      // Ensure particles.js is initialized after load
-      if (window.particlesJS) {
-        particlesJS("particles-js", {
-          "particles": {
-            "number": { "value": 80 },
-            "color": { "value": "#ffffff" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3, "random": true },
-            "line_linked": {
-              "enable": true,
-              "distance": 150,
-              "color": "#ffffff",
-              "opacity": 0.4,
-              "width": 1
-            },
-            "move": {
-              "enable": true,
-              "speed": 3,
-              "direction": "none",
-              "out_mode": "bounce"
-            }
-          },
-          "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-              "onhover": { "enable": true, "mode": "grab" },
-              "onclick": { "enable": true, "mode": "push" },
-              "resize": true
-            },
-            "modes": {
-              "grab": { "distance": 200, "line_linked": { "opacity": 0.7 } },
-              "push": { "particles_nb": 2 }
-            }
-          },
-          "retina_detect": true
-        });
-      }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 200, "line_linked": { "opacity": 0.7 } },
+          "push": { "particles_nb": 2 }
+        }
+      },
+      "retina_detect": true
     });
 
-    // Initialize auth check
-    checkAuth();
+    // tabs
+    const tabs = document.querySelectorAll('.tab-content');
+    const links = document.querySelectorAll('.tab-link');
+    const cheatBtn = document.getElementById('cheat-btn');
 
-    // Update preview on input
-    function debounce(func, wait) {
-      let timeout;
-      return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
-    }
-
-    document.querySelectorAll('#bio-username, #bio-desc, #bio-bg-color, #bio-text-color').forEach(input => {
-      input.addEventListener('input', debounce(updatePreview, 300));
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const tab = link.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        links.forEach(l => l.classList.remove('active'));
+        document.getElementById(tab).classList.add('active');
+        link.classList.add('active');
+        cheatBtn.style.display = (tab === 'hacks') ? 'none' : 'block';
+      });
     });
   </script>
 </body>
