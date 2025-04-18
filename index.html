@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ReqSNGLove</title>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     * { box-sizing: border-box; }
@@ -15,6 +16,16 @@
       background: #000;
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     .nav {
@@ -157,6 +168,9 @@
 </head>
 <body>
 
+  <!-- ЭФФЕКТ ПАУТИНКИ -->
+  <div id="particles-js"></div>
+
   <!-- Навигация -->
   <div class="nav">
     <a href="#" class="tab-link active" data-tab="home">Home</a>
@@ -179,7 +193,7 @@
     <!-- HACKS -->
     <div id="hacks" class="tab-content">
       <h1>Hacks CS2</h1>
-      <p>Explore the latest hacks for CS2 cheats. All files are for educational purposes only.</p>
+      <p>Explore the latest hacks for CS2. All files are for educational purposes only.</p>
       <ul class="crack-list">
         <li>
           Aimware Crack CS2 [17.04.2025]
@@ -211,8 +225,45 @@
   <!-- Кнопка снизу -->
   <a href="https://t.me/nonagonzone" id="cheat-btn" class="bottom-btn" target="_blank">BEST FREE CHEAT</a>
 
-  <!-- JS вкладок -->
+  <!-- JS -->
   <script>
+    // particles init
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "out_mode": "bounce"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "grab": { "distance": 200, "line_linked": { "opacity": 0.7 } },
+          "push": { "particles_nb": 2 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // tabs
     const tabs = document.querySelectorAll('.tab-content');
     const links = document.querySelectorAll('.tab-link');
     const cheatBtn = document.getElementById('cheat-btn');
@@ -221,18 +272,13 @@
       link.addEventListener('click', e => {
         e.preventDefault();
         const tab = link.getAttribute('data-tab');
-
         tabs.forEach(t => t.classList.remove('active'));
         links.forEach(l => l.classList.remove('active'));
-
         document.getElementById(tab).classList.add('active');
         link.classList.add('active');
-
-        // скрыть кнопку на Hacks
         cheatBtn.style.display = (tab === 'hacks') ? 'none' : 'block';
       });
     });
   </script>
 </body>
 </html>
-
