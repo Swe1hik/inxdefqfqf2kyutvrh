@@ -457,4 +457,48 @@ try {
     error_log("PHP UNCAUGHT ERROR: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine());
     sendResponse(false, null, 'An unexpected server error occurred.', 500);
 }
-?>
+                $userId = getUserId();
+                $username = getUsername();
+
+                if (empty($categorySlug) || empty($title) || empty($content)) {
+                    sendResponse(false, null, 'All fields are required to create a post.', 400);
+                }
+
+                $forumData = loadJsonData($forumDataFile, $initialForumData);
+
+                if (!isset($forumData[$categorySlug]) || !is_array($forumData[$categorySlug])) {
+                    $forumData[$categorySlug] = [];
+                }
+
+                $newPost = [
+                    'id' => uniqid('post_'),
+                    'title' => $title,
+                    'content' => $content,
+                    'username' => $username,
+                    'user_id' => $userId,
+                    'timestamp' => time()
+                ];
+
+                $forumData[$categorySlug][] = $newPost;
+
+                if (saveJsonData($forumData, $forumDataFile)) {
+                    sendResponse(true, null, 'Post created successfully!');
+                } else {
+                    sendResponse(false, null, 'Failed to save post. Please try again.', 500);
+                }
+                break;
+
+            default:
+                sendResponse(false, null, 'Invalid POST action specified.', 400);
+                break;
+        }
+    }
+
+    else {
+        sendResponse(false, null, 'Unsupported request method.', 405);
+    }
+
+} catch (Exception $e) {
+    error_log("Unexpected error: " . $e->getMessage());
+    sendResponse(false, null, 'Unexpected server error.', 500);
+}
