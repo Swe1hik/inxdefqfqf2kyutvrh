@@ -287,11 +287,11 @@
 
   <!-- Навигация -->
   <nav class="nav">
-    <a href="javascript:void(0)" class="tab-link active" data-tab="home" role="tab" aria-label="Home tab">Home</a>
-    <a href="javascript:void(0)" class="tab-link" data-tab="hacks" role="tab" aria-label="Hacks tab">Hacks CS2</a>
-    <a href="javascript:void(0)" class="tab-link" data-tab="cfg" role="tab" aria-label="CFG tab">CFG</a>
-    <a href="javascript:void(0)" class="tab-link" data-tab="other" role="tab" aria-label="Other tab">Other</a>
-    <a href="javascript:void(0)" class="tab-link" data-tab="bio" role="tab" aria-label="Bio tab">Bio</a>
+    <a href="#home" class="tab-link active" data-tab="home" role="tab" aria-label="Home tab">Home</a>
+    <a href="#hacks" class="tab-link" data-tab="hacks" role="tab" aria-label="Hacks tab">Hacks CS2</a>
+    <a href="#cfg" class="tab-link" data-tab="cfg" role="tab" aria-label="CFG tab">CFG</a>
+    <a href="#other" class="tab-link" data-tab="other" role="tab" aria-label="Other tab">Other</a>
+    <a href="#bio" class="tab-link" data-tab="bio" role="tab" aria-label="Bio tab">Bio</a>
   </nav>
 
   <!-- Контент -->
@@ -461,7 +461,7 @@
     async function signOut() {
       await supabase.auth.signOut();
       checkAuth();
-      showTab('bio');
+      window.location.hash = 'bio';
     }
 
     async function checkAuth() {
@@ -657,64 +657,58 @@
     }
 
     function handleRoute() {
-      const hash = window.location.hash;
+      const hash = window.location.hash || '#home';
       if (hash.startsWith('#bio/')) {
         const slug = hash.replace('#bio/', '');
         showTab('bio-view');
         loadBioView(slug);
       } else {
-        const tabId = hash.replace('#', '') || 'home';
+        const tabId = hash.replace('#', '');
         showTab(tabId);
       }
     }
 
     window.addEventListener('hashchange', handleRoute);
-    window.addEventListener('load', handleRoute);
-
-    // particles init
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#ffffff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3, "random": true },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 3,
-          "direction": "none",
-          "out_mode": "bounce"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "grab": { "distance": 200, "line_linked": { "opacity": 0.7 } },
-          "push": { "particles_nb": 2 }
-        }
-      },
-      "retina_detect": true
-    });
-
-    // tabs
-    const links = document.querySelectorAll('.tab-link');
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const tabId = link.getAttribute('data-tab');
-        window.location.hash = tabId;
-      });
+    window.addEventListener('load', () => {
+      handleRoute();
+      // Ensure particles.js is initialized after load
+      if (window.particlesJS) {
+        particlesJS("particles-js", {
+          "particles": {
+            "number": { "value": 80 },
+            "color": { "value": "#ffffff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3, "random": true },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#ffffff",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 3,
+              "direction": "none",
+              "out_mode": "bounce"
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": { "enable": true, "mode": "grab" },
+              "onclick": { "enable": true, "mode": "push" },
+              "resize": true
+            },
+            "modes": {
+              "grab": { "distance": 200, "line_linked": { "opacity": 0.7 } },
+              "push": { "particles_nb": 2 }
+            }
+          },
+          "retina_detect": true
+        });
+      }
     });
 
     // Initialize auth check
