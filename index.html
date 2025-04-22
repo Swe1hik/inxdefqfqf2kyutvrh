@@ -8,16 +8,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <style>
-
-#rainCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto:wght@400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -542,55 +532,9 @@
 
     </style>
 </head>
-<script>
-  const canvas = document.getElementById("rainCanvas");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let drops = [];
-  for (let i = 0; i < 300; i++) {
-    drops.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      l: Math.random() * 15 + 10,
-      xs: 0,
-      ys: Math.random() * 4 + 4
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "rgba(255,255,255,0.5)";
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    for (let i = 0; i < drops.length; i++) {
-      const d = drops[i];
-      ctx.moveTo(d.x, d.y);
-      ctx.lineTo(d.x + d.xs, d.y + d.l);
-    }
-    ctx.stroke();
-    move();
-  }
-
-  function move() {
-    for (let i = 0; i < drops.length; i++) {
-      const d = drops[i];
-      d.y += d.ys;
-      if (d.y > canvas.height) {
-        d.y = -20;
-        d.x = Math.random() * canvas.width;
-      }
-    }
-  }
-
-  setInterval(draw, 30);
-</script>
-
 <body>
 
-   <canvas id="rainCanvas"></canvas>
- 
+    <div id="particles-js"></div>
 
     <div id="message-container"></div>
 
